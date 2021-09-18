@@ -44,7 +44,7 @@ def vaccination_model():
 		clean_table.people_fully_vaccinated, "daily_second_vaccines")
 	
 
-	############ COULD BE MADE INTO A FUNCTION ###############
+	############ COULD BE MADE INTO A FUNCTION ##############
 	start_date = datetime.date(2021, 9, 14)
 	number_of_days = 17
 
@@ -52,7 +52,7 @@ def vaccination_model():
 
 	print(date_list)
 
-	############################################################
+	###########################################################
 
 
 if __name__=='__main__':
