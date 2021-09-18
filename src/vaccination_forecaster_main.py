@@ -3,7 +3,7 @@ import datetime
 import math
 import numpy as np
 import scipy.optimize as optimize
-import matplotlip.pyplot as plt
+import matplotlib.pyplot as plt
 
 data_file_path = "data"
 file_name = "covid_vaccine.xlsx"

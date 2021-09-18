@@ -11,11 +11,10 @@ def build_path(file_location, file_name):
 
 	return path
 
-def read_excel_table(file_location,file_name):
+def read_excel_table(path):
 	'''
 	This function reads the excel sheet for the data
 	'''
-	path = build_path(file_location, file_name)
 	input_table = pd.read_excel(path, engine="openpyxl")
 	return input_table
 
@@ -30,7 +29,8 @@ def clean_excel_table(table):
 
 
 def return_clean_table(file_location, file_name):
-	initial_table = read_excel_table(file_location, file_name)
+	path = build_path(file_location, file_name)
+	initial_table = read_excel_table(path)
 	cleaned_table = clean_excel_table(initial_table)
 
 	return cleaned_table
