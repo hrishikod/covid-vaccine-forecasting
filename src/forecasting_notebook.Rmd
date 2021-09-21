@@ -7,5 +7,36 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(forecast)
+library(readxl)
+library("growthrates")
+
 ```
 
+
+```{r}
+
+vaccine_data <- read_excel("../data/covid_vaccine.xlsx")
+
+
+```
+
+```{r}
+plottable_data = vaccine_data %>%
+  pivot_longer(!date, names_to = "type", values_to = "count")
+
+```
+
+```{r}
+first_vaxed_peoples = vaccine_data %>%
+  select(-c("people_fully_vaccinated"))
+fit_vaccines = nls(people_vaccinated~SSlogis(date),data = first_vaxed_peoples)
+```
+
+```{r}
+
+new_dates = seq(as.Date("2021-09-15"), as.Date("2021-09-30"), by="days")
+predicted_val = predict(fit_vaccines,newdata = data.frame(Day = new_dates))
+```

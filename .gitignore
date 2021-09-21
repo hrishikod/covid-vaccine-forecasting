@@ -2,3 +2,7 @@ venv/*
 src/__pycache__/*
 data/covid_vaccine.xlsx
 data/*
+.Rproj.user
+.RData
+.Rhistory
+covid-vaccine-forecasting.Rproj
